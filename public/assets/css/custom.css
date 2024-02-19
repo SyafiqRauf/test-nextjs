@@ -1,0 +1,397 @@
+/* <uniquifier>: Use a uniquifier for the class name
+ <weight>: Use a value from 200 to 800 */
+
+/* .plus-jakarta sans-<uniquifier > {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+* {
+  font-family: "Plus Jakarta Sans";
+}
+
+#laptop {
+  /* font-family: Jost; */
+  color: #0657a8;
+}
+
+#laptop .odometer {
+  /* font-family: Jost; */
+  font-size: 70px;
+}
+
+#laptop .sub-title {
+  /* font-family: Jost; */
+  color: #000;
+}
+
+#key-features .key-features-title,
+.question,
+.faq-title {
+  color: #0657a8;
+}
+
+.hero {
+  position: relative;
+  padding: 2% 0 120px 0;
+  /* position: absolute; */
+
+  width: 100%;
+  border-radius: 0;
+  background: url("/assets/images/galahad/Start1.png") center/cover;
+  height: 100vh;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  color: #074a8d; /* Set text color for better visibility */
+  text-align: center;
+}
+
+section {
+  overflow: hidden;
+}
+
+.laptop-galahad {
+  float: right;
+  text-align: right;
+  right: -10vw;
+  /* bottom: -50px; */
+}
+
+/* ----------------------------------------------------------------- */
+
+.key-features-images img {
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#image1 {
+  display: block;
+}
+
+/* ----------------------------------------------------------- */
+
+.parallax {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  cursor: pointer;
+}
+
+.parallax-text {
+  top: 20vh;
+  position: absolute;
+  /* max-height: 0px; */
+  /* overflow: hidden; */
+  /* transition: max-height 1s ease-out; */
+  animation: fade 1s ease-out;
+}
+
+.parallax-text h1 {
+  font-size: 50px;
+}
+
+.parallax-text h4 {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+/* .parallax.active .parallax-text {
+  max-height: 300px;
+  animation: fade 1s ease-in;
+} */
+
+.parallax img,
+.parallax svg {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  /* width: 25%; */
+
+  /* top: 0; */
+  /* bottom: 0; */
+  /* left: 0; */
+  /* pointer-events: none; */
+  /* top: -50px; */
+}
+
+#ellipse {
+  top: 10vh;
+  /* width: 50%; */
+}
+
+.parallax #ellipse-circle {
+  transition: r 0.7s ease-in;
+}
+
+/* .parallax.active #ellipse-circle {
+  transition: r 1s ease-out;
+} */
+
+#galahad2 {
+  /* top: 7vh; */
+  top: -5vh;
+  transition: top 1s ease-out;
+}
+
+/* .parallax.active #galahad2 {
+  top: -10vh;
+} */
+
+#galahad1 {
+  /* top: 12vh; */
+  top: 35vh;
+  transition: top 1s ease-out;
+}
+
+/* .parallax.active #galahad1 {
+  top: 45vh;
+} */
+
+/* ------------------------------------------------------ */
+
+.diamond {
+  display: flex;
+}
+
+.diamond img {
+  position: absolute;
+}
+
+#diamond-top {
+  top: -34vh;
+}
+#diamond-bottom {
+  top: -15vh;
+  animation: updown 1.5s ease-out infinite;
+}
+
+.thropy img {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+#thropy-tower {
+  top: -24vh;
+}
+
+#thropy-circle {
+  top: -20vh;
+  left: 100px;
+  animation: circle 3s infinite;
+}
+
+#thropy-serpihan1 {
+  top: -24vh;
+  left: 90px;
+  animation: serpihan1 3s infinite;
+}
+
+#thropy-serpihan2 {
+  top: -24vh;
+  left: 240px;
+  /* justify-content: center; */
+  animation: serpihan2 3s infinite;
+}
+/* -------------------------------------------------------- */
+
+/* .footer-galahad {
+  padding: 0.3%;
+} */
+
+
+/* --------------------------------------------------------- */
+
+.accordion-item {
+  /* border-bottom: 1px solid #ddd; */
+  cursor: pointer;
+  user-select: none;
+  justify-content: center;
+  
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  /* padding: 15px; */
+  /* cursor: pointer; */
+  user-select: none;
+}
+
+.accordion-header h4 {
+  padding-left: 20px;
+}
+
+.accordion-header svg {
+  margin-left: 20px;
+}
+.accordion-header img {
+  position: absolute;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s top;
+  animation: fade 4 ease;
+
+  /* top: -4px;
+  left: -5px; */
+  /* animation: fadeout 1; */
+  /* display: none; */
+}
+
+.accordion-item.active img {
+  max-height: 300px;
+  transition: max-height 0.5s;
+
+  /* animation: fade 4 ease; */
+}
+
+.accordion-content {
+  /* padding: 15px; */
+  /* display: none; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.18s linear;
+  animation: fade 1s ease-in;
+}
+
+.accordion-content p {
+  /* position: absolute; */
+  top: 5vh;
+  border-left: 1px solid rgba(114, 124, 245, 0.5);
+  margin-left: 25px;
+  padding-left: 20px;
+  text-align: justify;
+  color: #608ebd;
+}
+
+.accordion-item .accordion-header {
+  color: #b5b9c0;
+}
+
+.accordion-item.active .accordion-header {
+  color: #0657a8;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+  max-height: 300px;
+  transition: max-height 0.5s linear;
+  /* animation: fade 0.3s ease-in; */
+}
+/* --------------------------------------------------------------------- */
+
+.faq {
+  /* max-width: fit-content ; */
+  cursor: pointer;
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-out;
+  animation: fadeout 1s ease-in;
+}
+
+.answer p {
+  border-top: 1px solid rgba(114, 124, 245, 0.5);
+  padding-top: 1rem;
+}
+
+.faq.active .answer {
+  max-height: 300px;
+  /* transition: max-height 1s ease-out; */
+  animation: fade 0.3s ease-in;
+}
+
+.faq.active svg {
+  transform: rotate(-45deg);
+}
+
+.faq svg {
+  transition: transform 0.3s ease-in;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(7vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes circle {
+  0%,
+  100% {
+    transform: translateY(0vh) rotate(0deg);
+  }
+  33.33333% {
+    transform: translateY(-2vh) rotate(10deg);
+  }
+  66.66667% {
+    transform: translateY(-2vh) rotate(0deg);
+  }
+}
+
+@keyframes serpihan1 {
+  0%,
+  100% {
+    transform: translateY(0vh) rotate(0deg);
+  }
+  33.33333% {
+    transform: translateY(3vh) rotate(-12deg);
+  }
+  66.66667% {
+    transform: translateY(-3vh) rotate(0deg);
+  }
+}
+
+@keyframes serpihan2 {
+  0%,
+  100% {
+    transform: translateY(0vh) rotate(0deg);
+  }
+  33.33333% {
+    transform: translateY(-4vh) rotate(-4deg);
+  }
+  66.66667% {
+    transform: translateY(-7vh) rotate(0deg);
+  }
+}
