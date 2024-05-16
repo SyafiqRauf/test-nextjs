@@ -104,7 +104,7 @@ const projectlist = [
 ];
 const Page = () => {
   const [activeStatus, setActiveStatus] = useState("all");
-  const handleMenuClick = (data) => {
+  const handleMenuClick = (data: any) => {
     console.log(data);
   };
   return (

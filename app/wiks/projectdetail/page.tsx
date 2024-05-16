@@ -243,9 +243,7 @@ const page = () => {
         </div>
         <div className="basis-2/6 flex flex-col gap-3">
           <div className="card1 min-h-96 w-full bg-white p-4 flex flex-col rounded">
-            <div>
-              <Bar data={datachart} />
-            </div>
+            <div></div>
           </div>
           <div className="card1 min-h-96 w-full bg-white p-4 flex flex-col rounded">
             <div>

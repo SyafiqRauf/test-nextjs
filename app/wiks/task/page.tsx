@@ -510,7 +510,7 @@ const tasks = [
 const Page = () => {
   const [activeTask, setActiveTask] = useState(0);
   const [activeDate, setActiveDate] = useState(0);
-  const handleMenuClick = (data) => {
+  const handleMenuClick = (data: any) => {
     console.log(data);
   };
   return (
@@ -583,12 +583,12 @@ const Page = () => {
           })}
         </div>
         <div className="basis-2/6 ">
-          <DetailTaskCard
+          {/* <DetailTaskCard
             alltasks={alltasks}
             activetask={activeTask}
             activedate={activeDate}
             idchecked={`task-${activeDate}-${activeTask}`}
-          />
+          /> */}
         </div>
       </div>
     </div>
