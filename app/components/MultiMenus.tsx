@@ -8,14 +8,14 @@ import {
 } from "react-icons/fa";
 
 const MultiMenus = ({ menus }: any) => {
-  const [activeMenus, setActiveMenus] = useState([]);
+  const [activeMenus, setActiveMenus]: any = useState([]);
   const [currentMenus, setCurrentMenus] = useState(null);
 
-  const handleMenuClick = (data) => {
+  const handleMenuClick = (data: any) => {
     console.log(data);
   };
 
-  const handleArrowClick = (menuName) => {
+  const handleArrowClick = (menuName: any) => {
     let newActiveMenus = [...activeMenus];
 
     if (newActiveMenus.includes(menuName)) {
@@ -107,7 +107,7 @@ const MultiMenus = ({ menus }: any) => {
   return (
     <>
       <ul>
-        {menus.map((menu, index) => {
+        {menus.map((menu: any, index: any) => {
           const dept = 1;
           const menuName = `sidebar-menu-${dept}-${index}`;
 

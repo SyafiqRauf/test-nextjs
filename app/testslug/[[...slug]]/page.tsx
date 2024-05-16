@@ -1,6 +1,6 @@
 import React from "react";
 
-const page = ({ params }) => {
+const page = ({ params }: any) => {
   {
     if (params.slug?.length === 2) {
       return (

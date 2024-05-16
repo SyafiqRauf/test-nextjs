@@ -9,7 +9,7 @@ const FAQ = ({ faqContent }: any) => {
   return (
     <>
       <div className="flex flex-col gap-4 items-center justify-center">
-        {faqContent.map((faqs) => (
+        {faqContent.map((faqs: any) => (
           <div key={faqs.question}>
             <button
               className="flex w-96 bg-white items-center justify-between p-4"

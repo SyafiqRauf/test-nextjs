@@ -11,18 +11,18 @@ import {
 } from "react-icons/fa";
 
 const MultiMenusActive = ({ menus }: any) => {
-  const [activeMenus, setActiveMenus] = useState([]);
+  const [activeMenus, setActiveMenus]: any = useState([]);
   const [currentMenus, setCurrentMenus] = useState(null);
   // const [branchMenus, setBranchMenus] = useState([]);
   // const [treeMenus, setTreeMenus] = useState([]);
   // const [selectedMenu, setSelectedMenu] = useState(null);
 
-  const handleMenuClick = (data) => {
+  const handleMenuClick = (data: any) => {
     console.log(data);
   };
 
-  const handleArrowClick = (menuName) => {
-    let newActiveMenus = [...activeMenus];
+  const handleArrowClick = (menuName: any) => {
+    let newActiveMenus: any = [...activeMenus];
 
     if (newActiveMenus.includes(menuName)) {
       var index = newActiveMenus.indexOf(menuName);
@@ -115,7 +115,7 @@ const MultiMenusActive = ({ menus }: any) => {
   return (
     <>
       <ul className="flex flex-col gap-3">
-        {menus.map((menu, index) => {
+        {menus.map((menu: any, index: any) => {
           const dept = 1;
           const menuName = `sidebar-menu-${dept}-${index}`;
 

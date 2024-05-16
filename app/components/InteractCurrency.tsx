@@ -9,7 +9,7 @@ import { IoCloseOutline } from "react-icons/io5";
 
 const InteractCurrency = ({ setShowModal, activeModal }: any) => {
   const [currentBalance, setCurrentBalance] = useState(10000000);
-  const [percentAmount, setPercentAmount] = useState(``);
+  const [percentAmount, setPercentAmount]: any = useState(0);
   const [convertOption, setConvertOption] = useState(`GGGtoGXT`);
   const topuplist = [
     "5,000",
@@ -307,7 +307,7 @@ const InteractCurrency = ({ setShowModal, activeModal }: any) => {
                   </div>
                   <div className="text-sm font-normal font-['Noto Sans'] leading-snug bg-black flex items-center rounded-md">
                     <input
-                      type="text"
+                      type="number"
                       className=" p-3 bg-black text-white rounded-md placeholder:text-neutral-400 grow  "
                       placeholder="0000"
                       value={percentAmount}

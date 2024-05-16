@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({ isOpen, onClose }: any) => {
   if (!isOpen) return null;
 
   return (
