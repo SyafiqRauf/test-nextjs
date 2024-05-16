@@ -7,7 +7,7 @@ import { CgClose, CgSwapVertical } from "react-icons/cg";
 import { MdOutlineSwapVert, MdSwapVert } from "react-icons/md";
 import { IoCloseOutline } from "react-icons/io5";
 
-const InteractCurrency = ({ setShowModal, activeModal }: any) => {
+const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
   const [currentBalance, setCurrentBalance] = useState(10000000);
   const [percentAmount, setPercentAmount]: any = useState(0);
   const [convertOption, setConvertOption] = useState(`GGGtoGXT`);
@@ -22,6 +22,7 @@ const InteractCurrency = ({ setShowModal, activeModal }: any) => {
   const percentileamount = [25, 50, 75, 100];
   const banklist = ["BNI", "BRI", "BCA", "BTN", "MANDIRI", "BSI"];
   const [bankSelect, setBankSelect] = useState(0);
+  const [activeSwap, setActiveSwap] = useState(false);
   const GXTicon = (
     <Image
       src={"/assets/images/ggplay/GXT.svg"}
@@ -342,7 +343,7 @@ const InteractCurrency = ({ setShowModal, activeModal }: any) => {
           <div className="flex flex-col justify-center items-center gap-6 py-1.5">
             <div className="text-center gap-2 flex flex-col">
               <div className="text-white text-base font-normal font-['Noto Sans'] leading-snug flex gap-2.5 items-center justify-center">
-                Balance {GXTicon} 15.000
+                Balance {GXTicon} {currency[1].saldo}
               </div>
               <div className="w-[300px] text-center text-zinc-400 text-xs font-normal font-['Noto Sans'] leading-none">
                 Choose ammount to top up your GXTChoose ammount to top up your
@@ -357,7 +358,10 @@ const InteractCurrency = ({ setShowModal, activeModal }: any) => {
                     ? `bg-pink-500 text-white`
                     : `text-zinc-500`
                 } `}
-                onClick={() => setConvertOption(`GGGtoGXT`)}
+                onClick={() => {
+                  setConvertOption(`GGGtoGXT`);
+                  setActiveSwap(false);
+                }}
               >
                 GGG to GXT
               </button>
@@ -367,23 +371,33 @@ const InteractCurrency = ({ setShowModal, activeModal }: any) => {
                     ? `bg-pink-500 text-white`
                     : `text-zinc-500`
                 } `}
-                onClick={() => setConvertOption(`GXTtoIDR`)}
+                onClick={() => {
+                  setConvertOption(`GXTtoIDR`);
+                  setActiveSwap(false);
+                }}
               >
                 GXT to IDR
               </button>
             </div>
             <div className="flex flex-col gap-10 px-3.5 py-4 items-center justify-center w-full h-full">
               <div className="text-white text-base font-semibold font-['Noto Sans']">
-                GGG to GXT
+                {convertOption == "GGGtoGXT" ? "GGG to GXT" : "GXT to IDR"}
               </div>
 
-              <div className="flex flex-col gap-3 relative w-full h-full justify-center items-center">
-                <MdSwapVert className="absolute w-12 h-12 bg-zinc-900 rounded-full p-1" />
+              <div
+                className={`flex flex-col${
+                  activeSwap ? `-reverse` : ``
+                } gap-3 relative w-full h-full justify-center items-center`}
+              >
+                <MdSwapVert
+                  className="absolute w-12 h-12 bg-zinc-900 rounded-full p-1 cursor-pointer"
+                  onClick={() => setActiveSwap(!activeSwap)}
+                />
 
                 <div className="flex bg-zinc-800 w-full py-8 px-5 rounded-lg justify-between items-center h-32">
                   <div className="flex flex-col justify-between h-full">
                     <div className="text-white/30 text-xs font-normal font-['Noto Sans'] leading-none">
-                      From
+                      {activeSwap ? `To` : `From`}
                     </div>
                     <div className="text-white text-2xl font-semibold font-['Noto Sans'] ">
                       0.00
@@ -392,17 +406,29 @@ const InteractCurrency = ({ setShowModal, activeModal }: any) => {
 
                   <div className="flex flex-col justify-between h-full">
                     <div className="flex text-right text-white/30 text-xs font-normal font-['Noto Sans'] leading-none ">
-                      Balance : 0 GGG
+                      Balance :{" "}
+                      {convertOption == "GGGtoGXT"
+                        ? `${currency[2].saldo} ${currency[2].currency}`
+                        : `${currency[1].saldo} ${currency[1].currency}`}
                     </div>
-                    <div className="rounded-full flex bg-black grow-0 py-2 px-4 leading-3 items-center text-white text-base font-normal font-['Noto Sans'] leading-snug gap-2">
-                      {GGGicon} GGG
+                    <div className="flex justify-end">
+                      {convertOption == "GGGtoGXT" ? (
+                        <div className="rounded-full flex bg-black grow-0 py-2 px-4 leading-3 items-center text-white text-base font-normal font-['Noto Sans'] leading-snug gap-2">
+                          {GGGicon} GGG
+                        </div>
+                      ) : (
+                        <div className="rounded-full flex bg-black grow-0 py-2 px-4 leading-3 items-center text-white text-base font-normal font-['Noto Sans'] leading-snug gap-2">
+                          {GXTicon} GXT
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
+
                 <div className="flex bg-zinc-800 w-full py-8 px-5 rounded-lg justify-between items-center h-32">
                   <div className="flex flex-col justify-between h-full">
                     <div className="text-white/30 text-xs font-normal font-['Noto Sans'] leading-none">
-                      To
+                      {!activeSwap ? `To` : `From`}
                     </div>
                     <div className="text-white text-2xl font-semibold font-['Noto Sans'] ">
                       0.00
@@ -411,10 +437,21 @@ const InteractCurrency = ({ setShowModal, activeModal }: any) => {
 
                   <div className="flex flex-col justify-between h-full">
                     <div className="flex text-right text-white/30 text-xs font-normal font-['Noto Sans'] leading-none ">
-                      Balance : 0 GXT
+                      Balance :{" "}
+                      {convertOption == "GGGtoGXT"
+                        ? `${currency[1].saldo} ${currency[1].currency}`
+                        : `${currency[0].saldo} ${currency[0].currency}`}
                     </div>
-                    <div className="rounded-full flex bg-black grow-0 py-2 px-4 leading-3 items-center text-white text-base font-normal font-['Noto Sans'] leading-snug gap-2">
-                      {GXTicon} GXT
+                    <div className="flex justify-end">
+                      {convertOption == "GGGtoGXT" ? (
+                        <div className="rounded-full flex bg-black shrink py-2 px-4 leading-3 items-center text-white text-base font-normal font-['Noto Sans'] leading-snug gap-2">
+                          {GXTicon} GXT
+                        </div>
+                      ) : (
+                        <div className="rounded-full flex bg-black flex-0 py-2 px-4 leading-3 items-center text-white text-base font-normal font-['Noto Sans'] leading-snug gap-2">
+                          Rp. IDR
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

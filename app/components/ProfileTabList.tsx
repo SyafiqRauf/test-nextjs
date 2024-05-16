@@ -2,17 +2,12 @@
 import React, { Fragment, useState } from "react";
 import MyProfileGGPlay from "./MyProfileGGPlay";
 import { FaChevronDown, FaCircleArrowUp, FaCirclePlus } from "react-icons/fa6";
-import { TiArrowRepeat } from "react-icons/ti";
 import { LuRepeat } from "react-icons/lu";
 import { Menu, Transition } from "@headlessui/react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
 import { CgSearch } from "react-icons/cg";
 import { GrDocumentTransfer } from "react-icons/gr";
 import Modals from "./Modals";
-import VerificationProfileStep from "./VerificationProfileStep";
-import TopUpGXT from "./TopUpGXT";
-import Convert from "./Convert";
 import InteractCurrency from "./InteractCurrency";
 
 const ProfileTabList = () => {
@@ -262,6 +257,7 @@ const ProfileTabList = () => {
                 <InteractCurrency
                   setShowModal={setShowModal}
                   activeModal={activeModal}
+                  currency={currency}
                 />
               }
             />
