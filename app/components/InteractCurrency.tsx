@@ -386,7 +386,7 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
 
               <div
                 className={`flex flex-col${
-                  activeSwap ? `-reverse` : ``
+                  activeSwap ? "-reverse" : ""
                 } gap-3 relative w-full h-full justify-center items-center`}
               >
                 <MdSwapVert
