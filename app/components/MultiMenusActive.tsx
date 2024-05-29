@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState } from "react";
 import { BsChevronRight } from "react-icons/bs";
 
@@ -38,7 +39,14 @@ const MultiMenusActive = ({ menus }: any) => {
 
   const handleSelectedMenu = () => {};
 
-  const ListMenu = ({ dept, data, hasSubMenu, menuName, menuIndex }: any) => (
+  const ListMenu = ({
+    dept,
+    data,
+    hasSubMenu,
+    menuName,
+    menuIndex,
+    href,
+  }: any) => (
     <li className="relative flex xl:block">
       <div
         className={`flex items-center justify-between px-4 hover:text-slate-300 transition ease-in-out ${
@@ -47,7 +55,8 @@ const MultiMenusActive = ({ menus }: any) => {
             : `text-slate-400`
         } ${currentMenus === menuName && !hasSubMenu ? `text-blue-400` : ``}`}
       >
-        <button
+        <Link
+          href={data.href}
           onClick={() => {
             handleArrowClick(menuName);
             handleMenuClick(activeMenus);
@@ -68,7 +77,7 @@ const MultiMenusActive = ({ menus }: any) => {
               )}
             </span>
           )}
-        </button>
+        </Link>
       </div>
       <div>
         {hasSubMenu && (
@@ -92,7 +101,7 @@ const MultiMenusActive = ({ menus }: any) => {
 
     return (
       <>
-        <ul className="pl-2 absolute bg-blue-400 left-16 xl:static xl:bg-transparent z-[2]">
+        <ul className="pl-2 absolute bg-blue-400 left-16 xl:static xl:bg-transparent z-[2] flex flex-col gap-3">
           {data.map((menu: any, index: any) => {
             const menuName = `sidebar-submenu-${dept}-${menuIndex}-${index}`;
 
@@ -127,6 +136,7 @@ const MultiMenusActive = ({ menus }: any) => {
               menuName={menuName}
               key={menuName}
               menuIndex={index}
+              href={menu.href}
             />
           );
         })}
