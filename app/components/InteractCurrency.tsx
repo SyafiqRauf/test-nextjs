@@ -9,7 +9,7 @@ import { IoCloseOutline } from "react-icons/io5";
 
 const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
   const [currentBalance, setCurrentBalance] = useState(10000000);
-  const [percentAmount, setPercentAmount]: any = useState(0);
+  const [percentAmount, setPercentAmount]: any = useState();
   const [convertOption, setConvertOption] = useState(`GGGtoGXT`);
   const topuplist = [
     "5,000",
@@ -39,16 +39,21 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
       height={24}
     />
   );
+  const BoxArrowUpicon = (
+    <Image
+      src={"/assets/images/ggplay/box-arrow-up-left_small.svg"}
+      alt="ggg-icon"
+      width={10}
+      height={10}
+    />
+  );
   return (
     <>
       <div className="flex flex-col p-6 bg-zinc-900 gap-2 min-w-[453px] text-white rounded-lg">
         <div className="flex justify-between items-center">
-          <label
-            htmlFor=""
-            className="text-white text-xl font-semibold font-['Noto Sans'] leading-7"
-          >
+          <span className="text-white text-xl font-semibold font-['Noto Sans'] leading-7">
             {activeModal}
-          </label>
+          </span>
           <CgClose
             className="text-white cursor-pointer w-5 h-auto"
             onClick={() => setShowModal(false)}
@@ -59,10 +64,10 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
           <div className="flex flex-col justify-center items-center gap-6 py-1.5">
             <div className="text-center gap-2 flex flex-col">
               <div className="text-white text-base font-normal font-['Noto Sans'] leading-snug flex gap-2.5 items-center justify-center">
-                Balance {GXTicon} 15.000
+                Balance {GXTicon} {currency[1].saldo}
               </div>
               <div className="w-[300px] text-center text-zinc-400 text-xs font-normal font-['Noto Sans'] leading-none">
-                Choose ammount to top up your GXTChoose ammount to top up your
+                Choose ammount to top up your GXT Choose ammount to top up your
                 GXT
               </div>
             </div>
@@ -89,12 +94,14 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
                 <div className="flex flex-col gap-2">
                   <label
                     className="text-white text-xs font-normal font-['Noto Sans'] leading-none"
-                    htmlFor=""
+                    htmlFor="nominal"
                   >
                     Nominal Lain <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
+                    id="nominal"
+                    name="nominal"
                     className="bg-black p-3 placeholder:text-neutral-400 text-white text-base font-normal font-['Noto Sans'] leading-snug rounded"
                     placeholder="Input Nominal"
                   />
@@ -131,6 +138,8 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
                     </span>
                     <input
                       type="text"
+                      id="GGG_token"
+                      name="GGG_token"
                       placeholder="Good Games Guild Token"
                       className="bg-stone-900 placeholder:text-white/30 text-xl font-semibold font-['Noto Sans'] leading-7"
                     />
@@ -147,6 +156,8 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
                     </span>
                     <input
                       type="text"
+                      id="BNB"
+                      name="BNB"
                       placeholder="BNB Smart Chain (BEP20)"
                       className="bg-stone-900 placeholder:text-white/30 text-xl font-semibold font-['Noto Sans'] leading-7"
                     />
@@ -203,7 +214,9 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
                   </div>
                   <div className="flex flex-col gap-1.5 basis-1/2">
                     <div>Contract Address</div>
-                    <div>Ending in 73402</div>
+                    <div className="flex gap-3">
+                      Ending in 73402 {BoxArrowUpicon}
+                    </div>
                   </div>
                 </div>
 
@@ -255,24 +268,23 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-1 flex-col gap-2">
-                  <label
-                    htmlFor=""
-                    className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
-                  >
+                  <span className="text-white text-xs font-semibold font-['Noto Sans'] leading-none">
                     Bank Name<span className="text-red-500">*</span>
-                  </label>
+                  </span>
                   <MenuDropDown dataset={banklist} selectitem={setBankSelect} />
                 </div>
 
                 <div className="flex flex-1 flex-col gap-2">
                   <label
-                    htmlFor=""
+                    htmlFor="bank_account"
                     className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
                   >
                     Number Account Bank<span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
+                    id="bank_account"
+                    name="bank_account"
                     className=" p-3 bg-black text-white rounded-md placeholder:text-neutral-400 text-sm font-normal font-['Noto Sans'] leading-snug"
                     placeholder="Input your number bank account"
                   />
@@ -280,13 +292,15 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
 
                 <div className="flex flex-1 flex-col gap-2">
                   <label
-                    htmlFor=""
+                    htmlFor="id_bank"
                     className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
                   >
                     ID Account Bank<span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
+                    id="id_bank"
+                    name="id_bank"
                     className=" p-3 bg-black text-white rounded-md placeholder:text-neutral-400 text-sm font-normal font-['Noto Sans'] leading-snug"
                     placeholder="ID Account Bank"
                   />
@@ -296,12 +310,9 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
               <div className="flex flex-col gap-4">
                 <div className="flex flex-1 flex-col gap-2.5">
                   <div className="flex justify-between items-center">
-                    <label
-                      htmlFor=""
-                      className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
-                    >
+                    <span className="text-white text-xs font-semibold font-['Noto Sans'] leading-none">
                       Amount<span className="text-red-500">*</span>
-                    </label>
+                    </span>
                     <div className="text-white text-xs font-normal font-['Noto Sans'] leading-none">
                       Balance : {currentBalance} IDR
                     </div>
@@ -309,6 +320,8 @@ const InteractCurrency = ({ setShowModal, activeModal, currency }: any) => {
                   <div className="text-sm font-normal font-['Noto Sans'] leading-snug bg-black flex items-center rounded-md">
                     <input
                       type="number"
+                      id="amount_balance"
+                      name="amount_balance"
                       className=" p-3 bg-black text-white rounded-md placeholder:text-neutral-400 grow  "
                       placeholder="0000"
                       value={percentAmount}

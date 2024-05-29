@@ -10,14 +10,14 @@ import VerificationProgressCard from "./VerificationProgressCard";
 const ProfileImageGGPlay = ({ username }: any) => {
   const [progressVerif, setProgressVerif] = useState(20);
   const [isVerified, setIsVerified] = useState(false);
-  const [backgroundImage, setBackgroundImage] = useState("gradient-to-b");
+  const [backgroundImage, setBackgroundImage] = useState("bg-gradient-to-b");
   const [profileImage, setProfileImage] = useState("default_profile.png");
   return (
     <>
       <div
-        className={`bg-${backgroundImage}  bg-cover bg-center bg-no-repeat from-zinc-800 to-[#171313]/[0.58] w-full min-h-[334px] rounded-lg ring-1 ring-zinc-600 flex mx-auto pt-4 pb-12 cursor-pointer`}
+        className={`${backgroundImage}  bg-cover bg-center bg-no-repeat from-zinc-800 to-[#171313]/[0.58] w-full min-h-[334px] rounded-lg ring-1 ring-zinc-600 flex mx-auto pt-4 pb-12 cursor-pointer`}
         onClick={() => {
-          setBackgroundImage("[url('/assets/images/ggplay/bg_image.jpeg')]");
+          setBackgroundImage("bg-[url('/assets/images/ggplay/bg_image.jpeg')]");
           setProfileImage("arsy.png");
           setIsVerified(true);
           setProgressVerif(100);

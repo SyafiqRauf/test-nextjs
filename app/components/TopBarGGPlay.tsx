@@ -11,10 +11,10 @@ const TopbarGGPlay = () => {
     <>
       <div className="topbar w-full min-h-16 flex justify-between items-center px-5 bg-[#141414]">
         <Image
-          className=""
+          className="h-auto"
           src="/assets/images/ggplay/LOGO.svg"
           alt="Generic placeholder image"
-          height={300}
+          height={240}
           width={240}
         />
 

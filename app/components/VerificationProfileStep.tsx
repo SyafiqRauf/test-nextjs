@@ -38,14 +38,14 @@ const VerificationProfileStep = ({ setShowModal, setProgressVerif }: any) => {
                 <>
                   <div className="flex flex-col gap-2">
                     <label
-                      htmlFor="full_name"
+                      htmlFor="fullname_verification"
                       className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
                     >
                       Full name<span className="text-red-500">*</span>
                     </label>
                     <input
-                      id="full_name"
-                      name="full_name"
+                      id="fullname_verification"
+                      name="fullname_verification"
                       type="text"
                       className="py-2.5 px-3.5 flex-1 flex w-full bg-black text-neutral-400 text-sm font-normal font-['Noto Sans'] leading-snug rounded"
                       placeholder={`Enter Your Full name`}
@@ -53,15 +53,15 @@ const VerificationProfileStep = ({ setShowModal, setProgressVerif }: any) => {
                   </div>
                   <div className="flex flex-col gap-2">
                     <label
-                      htmlFor="id_number"
+                      htmlFor="id_number_verification"
                       className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
                     >
                       ID Card Number / Passport Number
                       <span className="text-red-500">*</span>
                     </label>
                     <input
-                      id="id_number"
-                      name="id_number"
+                      id="id_number_verification"
+                      name="id_number_verification"
                       type="text"
                       className="py-2.5 px-3.5 flex-1 flex w-full bg-black text-neutral-400 text-sm font-normal font-['Noto Sans'] leading-snug rounded"
                       placeholder={`Enter Your ID Card / Passport Number`}
@@ -69,15 +69,15 @@ const VerificationProfileStep = ({ setShowModal, setProgressVerif }: any) => {
                   </div>
                   <div className="flex flex-col gap-2">
                     <label
-                      htmlFor="phone_number"
+                      htmlFor="phone_number_verification"
                       className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
                     >
                       Phone number
                       <span className="text-red-500">*</span>
                     </label>
                     <input
-                      id="phone_number"
-                      name="phone_number"
+                      id="phone_number_verification"
+                      name="phone_number_verification"
                       type="text"
                       className="py-2.5 px-3.5 flex-1 flex w-full bg-black text-neutral-400 text-sm font-normal font-['Noto Sans'] leading-snug rounded"
                       placeholder={`+62     Input your phone number`}
@@ -111,17 +111,11 @@ const VerificationProfileStep = ({ setShowModal, setProgressVerif }: any) => {
               )}
 
               <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="id_photo"
-                  className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
-                >
+                <span className="text-white text-xs font-semibold font-['Noto Sans'] leading-none">
                   Upload Id Card
                   <span className="text-red-500">*</span>
-                </label>
-                <div
-                  id="id_photo"
-                  className=" min-h-[134px] px-6 py-4 bg-zinc-800 border border-stone-500 rounded  flex flex-col justify-center items-center gap-3"
-                >
+                </span>
+                <div className=" min-h-[134px] px-6 py-4 bg-zinc-800 border border-stone-500 rounded  flex flex-col justify-center items-center gap-3">
                   <FiUploadCloud className="text-neutral-400 w-11 h-auto relative flex-col justify-start items-start flex p-2.5 rounded-lg border-2 border-neutral-400 " />
                   <p className="text-neutral-400 text-[10px] font-normal font-['Noto Sans'] text-center leading-">
                     <span className="text-white">Click to upload</span> or drag

@@ -201,7 +201,7 @@ const ProfileTabList = () => {
     }
   };
 
-  const tdstyle = `py-3 px-6 bg-zinc-900 text-zinc-400 flex flex-1 text-center justify-center text-base font-semibold font-['Noto Sans'] leading-snug`;
+  const tdstyle = `py-3 px-6 bg-zinc-900 text-zinc-400 flex flex-1 text-center justify-center text-base font-semibold font-['Noto Sans'] leading-snug basis-[14.2857143%] text-nowrap min-w-32  border-b border-neutral-600`;
 
   const tdcontent = "p-2.5";
   return (
@@ -267,7 +267,7 @@ const ProfileTabList = () => {
               {currency.map((data) => (
                 <div
                   key={data.currency}
-                  className={`py-4 px-[7px] flex flex-col flex-1  min-h-4 bg-zinc-900 rounded border border-neutral-600`}
+                  className={`py-4 px-[7px] flex flex-col flex-1  min-h-4 bg-zinc-900 rounded border border-neutral-600 `}
                 >
                   <div className=" text-gray-300 text-sm font-medium font-['Noto Sans'] leading-tight">
                     Saldo {data.currency}
@@ -298,7 +298,7 @@ const ProfileTabList = () => {
           <hr className="my-12" />
 
           <div className="flex flex-col gap-6">
-            <div className="gap-6">
+            <div className="flex flex-col gap-6">
               <div>
                 <div className="text-white">Data Balance History</div>
               </div>
@@ -313,15 +313,16 @@ const ProfileTabList = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-4 h-full">
+                <div className="flex gap-4">
                   <div className="flex rounded bg-zinc-800 text-zinc-400 items-center justify-center pl-3 gap-2 h-auto">
                     <CgSearch className="w-6 h-full" />
                     <input
+                      id="search_table"
                       className="text-zinc-400 text-base font-normal font-['Noto Sans'] leading-snug w-72 h-full bg-zinc-800 rounded-r justify-start items-center gap-2.5 inline-flex flex-1 ring-0 active:ring-0"
                       placeholder="Search"
                     />
                   </div>
-                  <div className=" px-4 py-2 bg-pink-600 text-white rounded justify-center items-center gap-2 flex ">
+                  <div className="flex px-4 py-2 bg-pink-600 text-white rounded justify-center items-center gap-2 ">
                     <GrDocumentTransfer />
                     <div className="text-white text-base font-semibold font-['Noto Sans'] leading-snug">
                       Export CSV
@@ -331,12 +332,12 @@ const ProfileTabList = () => {
               </div>
             </div>
             <div>
-              <table className="flex flex-1 flex-col">
+              <table className="flex flex-1 flex-col overflow-auto ">
                 <tr className="flex flex-1 ">
                   {tablehead.map((th) => (
                     <th
                       key={th}
-                      className="py-3 px-6 bg-zinc-800 text-zinc-400 flex flex-1 text-center text-xs font-medium  leading-none justify-center items-center"
+                      className="py-3 px-6 bg-zinc-800 text-zinc-400 flex text-center text-xs font-medium  leading-none justify-center items-center basis-[14.2857143%] text-nowrap min-w-32  border-b border-neutral-600"
                     >
                       {th}
                     </th>
@@ -346,10 +347,7 @@ const ProfileTabList = () => {
                   (datatransaksi, indextransaksi) =>
                     indextransaksi >= rowSelected * (pageSelect - 1) &&
                     indextransaksi < rowSelected * pageSelect && (
-                      <tr
-                        key={indextransaksi}
-                        className="flex border-b border-neutral-600"
-                      >
+                      <tr key={indextransaksi} className="flex">
                         <td className={`${tdstyle}`}>
                           <span className={`${tdcontent}`}>
                             {datatransaksi?.ID_Transaction}
@@ -577,15 +575,15 @@ const ProfileTabList = () => {
             </div>
             <div className="flex flex-col gap-2">
               <label
-                htmlFor="new_email"
+                htmlFor="verification_code"
                 className="text-white text-xs font-semibold font-['Noto Sans'] leading-none"
               >
                 Verification Code<span className="text-red-500">*</span>
               </label>
               <div className="flex gap-16">
                 <input
-                  id="new_email"
-                  name="new_email"
+                  id="verification_code"
+                  name="verification_code"
                   type="text"
                   className="py-2.5 px-3.5 flex-1 flex w-full bg-black text-neutral-400 text-sm font-normal font-['Noto Sans'] leading-snug rounded"
                   placeholder={`Enter 6 digits Code`}
